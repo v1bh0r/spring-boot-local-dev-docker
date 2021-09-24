@@ -6,6 +6,7 @@ services:
       dockerfile: Dockerfile
     volumes:
       - ./:/app
+      - ./.m2:/root/.m2
     working_dir: /app
     command: sh run.sh
     ports:

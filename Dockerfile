@@ -5,4 +5,3 @@ ENV HOME=/app
 RUN mkdir -p $HOME
 WORKDIR $HOME
 ADD ./ $HOME
-RUN dos2unix mvnw && ./mvnw dependency:go-offline
