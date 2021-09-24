@@ -13,10 +13,24 @@ docker-compose up
 ### Test
 On visiting [http://localhost:8080/api/](http://localhost:8080/api/) in your browser
 
-You should see "Hello World"
+You should see "Hello Human"
 
 Notice that you don't have to re-build the code when you make code changes. You can even enable automatic refresh on
 Chrome by installing [LiveReload plugin](https://chrome.google.com/webstore/detail/livereload/jnihajbhpnppcggbcgedagnkighmdlei)
+
+#### Test Database persistence
+##### Create a record
+```bash
+curl --location --request POST 'http://localhost:8080/api/employees/' \
+--header 'Content-Type: application/json' \
+--data-raw '{
+    "name": "John Doe"
+}'
+```
+##### List all records
+```bash
+curl http://localhost:8080/api/employees/
+```
 
 ## Reference Documentation
 For further reference, please consider the following sections:

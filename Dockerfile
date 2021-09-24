@@ -4,4 +4,3 @@ RUN apt-get install -y inotify-tools dos2unix
 ENV HOME=/app
 RUN mkdir -p $HOME
 WORKDIR $HOME
-ADD ./ $HOME

@@ -34,3 +34,6 @@ build/
 
 # Maven
 .m2/
+
+# Postgresql Data
+.postgresql_data/

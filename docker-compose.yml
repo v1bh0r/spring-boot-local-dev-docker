@@ -13,3 +13,12 @@ services:
       - 8080:8080
       - 35729:35729
       - 5005:5005
+    depends_on:
+      - db
+  db:
+    image: postgres
+    restart: always
+    environment:
+      POSTGRES_PASSWORD: mydbpassword
+    volumes:
+      - ./.postgresql_data:/var/lib/postgresql/data
