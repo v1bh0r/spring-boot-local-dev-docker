@@ -6,7 +6,8 @@
 
 ### Build and Run the code
 ```bash
-docker-compose up --build
+docker-compose build
+docker-compose up
 ```
 
 ### Test
