@@ -40,3 +40,6 @@ For further reference, please consider the following sections:
 * [Create an OCI image](https://docs.spring.io/spring-boot/docs/2.5.5/maven-plugin/reference/html/#build-image)
 * [Spring Boot DevTools](https://docs.spring.io/spring-boot/docs/2.5.5/reference/htmlsingle/#using-boot-devtools)
 
+## Troubleshooting
+### Code changes are not automatically detected
+[https://github.com/docker/for-win/issues/8479](https://github.com/docker/for-win/issues/8479)
