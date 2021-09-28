@@ -21,8 +21,4 @@ services:
     environment:
       POSTGRES_PASSWORD: mydbpassword
     volumes:
-      - pgdata:/var/lib/postgresql/data
-
-volumes:
-  pgdata:
-    external: true
+      - ./.postgresql_data:/var/lib/postgresql/data
