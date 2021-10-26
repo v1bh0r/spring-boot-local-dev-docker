@@ -10,6 +10,6 @@ import org.springframework.web.bind.annotation.RestController;
 public class APIController {
     @GetMapping("/")
     private ResponseEntity<String> getRoot() {
-        return ResponseEntity.ok("Hello Human");
+        return ResponseEntity.ok("Hello Human!");
     }
 }

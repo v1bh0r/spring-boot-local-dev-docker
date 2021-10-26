@@ -1,0 +1,68 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: springboot
+  labels:
+    app: springboot
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: springboot
+      someselector: somethingweird
+  template:
+    metadata:
+      labels:
+        app: springboot
+        someselector: somethingweird
+    spec:
+      containers:
+        - image: "spring-boot-local-dev-docker:latest"
+          imagePullPolicy: Never
+          name: springboot
+          env:
+            - name: PG_HOST
+              value: db-postgresql
+            - name: PG_PASS
+              valueFrom:
+                secretKeyRef:
+                  name: db-postgresql
+                  key: postgresql-password
+          resources:
+            requests:
+              memory: "512Mi"
+              cpu: "250m"
+            limits:
+              memory: "1024Mi"
+              cpu: "500m"
+          livenessProbe:
+            httpGet:
+              path: /api/
+              port: http
+            initialDelaySeconds: 70
+          readinessProbe:
+            httpGet:
+              path: /api/
+              port: http
+            initialDelaySeconds: 80
+          ports:
+            - name: http
+              containerPort: 8080
+              protocol: TCP
+
+---
+
+apiVersion: v1
+kind: Service
+metadata:
+  name: springboot-service
+  labels:
+    name: springboot-service
+spec:
+  selector:
+    someselector: somethingweird
+  ports:
+    - name: http
+      protocol: TCP
+      port: 3000
+      targetPort: 8080

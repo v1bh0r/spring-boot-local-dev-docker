@@ -4,6 +4,3 @@ RUN apt-get install -y inotify-tools dos2unix
 ENV HOME=/app
 RUN mkdir -p $HOME
 WORKDIR $HOME
-ADD . .
-RUN ./mvnw install -DskipTests
-ENTRYPOINT ["java","-jar","target/spring-boot-local-dev-docker-0.0.1-SNAPSHOT.jar"]

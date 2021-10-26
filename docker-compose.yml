@@ -3,12 +3,15 @@ services:
   api:
     build:
       context: ./
-      dockerfile: Dockerfile
+      dockerfile: local.Dockerfile
     volumes:
       - ./:/app
       - ./.m2:/root/.m2
     working_dir: /app
     command: sh run.sh
+    environment:
+      PG_HOST: db
+      PG_PASS: mydbpassword
     ports:
       - 8080:8080
       - 35729:35729
